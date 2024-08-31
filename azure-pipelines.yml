@@ -13,9 +13,12 @@ steps:
   
 - script:  choco install ruby --version=3.1.5.1
 
-  displayName: Install Jekyll and bundler
+  displayName: Install Jekyll
+- script: gem install jekyll -v '4.2.2'
+
+  displayName: Install bundler
 - script: |
-    gem install jekyll bundler
+    gem install bundler
  
   displayName: Install Gems
 - script: 
