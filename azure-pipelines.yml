@@ -18,7 +18,9 @@ steps:
   displayName: Install Jekyll and bundler
 
 - script: 
+     bundle update --bundler
      bundle install
+
   displayName: Install Gems
   
 
