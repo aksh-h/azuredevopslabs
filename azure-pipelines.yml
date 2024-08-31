@@ -1,0 +1,27 @@
+# Ruby
+# Package your Ruby project.
+# Add steps that install rails, analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
+
+trigger:
+- master
+  
+pool:
+  vmImage: windows-2019
+
+steps:
+
+- script:  choco install ruby --version=3.1.5.1
+- script: |
+    gem install jekyll bundler
+ 
+  displayName: Install Jekyll and bundler
+
+- script: 
+     bundle install
+  displayName: Install Gems
+  
+
+
+- script: 'bundle exec jekyll build'
+  displayName: Build
