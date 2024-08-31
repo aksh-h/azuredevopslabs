@@ -4,26 +4,23 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
 
 trigger:
-- master
+- azure-pipelines-001
   
 pool:
   vmImage: windows-2019
 
 steps:
-
+  
 - script:  choco install ruby --version=3.1.5.1
+
+  displayName: Install Jekyll and bundler
 - script: |
     gem install jekyll bundler
  
-  displayName: Install Jekyll and bundler
-
+  displayName: Install Gems
 - script: 
      bundle update --bundler
      bundle install
 
-  displayName: Install Gems
-  
-
-
-- script: 'bundle exec jekyll build'
   displayName: Build
+- script: 'bundle exec jekyll build'
