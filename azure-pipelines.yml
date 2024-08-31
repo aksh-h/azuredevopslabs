@@ -12,15 +12,15 @@ pool:
 steps:
   
 - script:  choco install ruby --version=3.1.5.1
-
   displayName: Install Jekyll
-- script: gem install jekyll -v '4.2.2'
 
-  displayName: Install bundler
+- script: gem install jekyll -v '4.2.2'
+  displayName: Install Jekyll
+
 - script: |
     gem install bundler
- 
-  displayName: Install Gems
+  displayName: Install Bundler
+
 - script: 
      bundle update --bundler
      bundle install
